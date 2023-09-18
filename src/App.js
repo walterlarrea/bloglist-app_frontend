@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import './index.css'
 import Notification from './components/Notification'
 import Togglable from './components/Togglable'
 import LoginForm from './components/LoginForm'
