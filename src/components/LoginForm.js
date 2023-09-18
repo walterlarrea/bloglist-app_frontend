@@ -5,19 +5,12 @@ import { setNotification } from '../reducers/notificationReducer'
 
 import {
   TextField,
-  Button
+  // Button
 } from '@mui/material'
 
 const LoginForm = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-
-  const centerGridStyle = {
-    display: 'grid',
-    gridGap: '20px',
-    gridTemplateColumns: '1fr',
-    justifyItems: 'center'
-  }
 
   const dispatch = useDispatch()
 
@@ -38,32 +31,37 @@ const LoginForm = () => {
   }
 
   return (
-    <div style={centerGridStyle} >
-      <h2>Log in to application</h2>
+    <div className='flex flex-col gap-5 w-full h-screen items-center justify-center' >
 
-      <form style={centerGridStyle} onSubmit={handleLogin}>
-        <div>
-          <TextField
-            label='username'
-            type="text"
-            value={username}
-            name="username"
-            onChange={handleUsernameChange}
-          />
-        </div>
-        <div>
-          <TextField
-            label='password'
-            type="password"
-            value={password}
-            name="password"
-            onChange={handlePasswordChange}
-          />
-        </div>
-        <Button variant='contained' color='primary' id='login-button' type="submit">
-          login
-        </Button>
+      <form className='flex flex-col items-center gap-5 w-80 p-8 border-2 rounded-lg shadow-lg' onSubmit={handleLogin}>
+        <h1 className='text-2xl'>Log in <span className='text-xs'>user / user</span></h1>
+
+        <TextField
+          className='w-full'
+          label='username'
+          type="text"
+          value={username}
+          name="username"
+          onChange={handleUsernameChange}
+        />
+        <TextField
+          className='w-full'
+          label='password'
+          type="password"
+          value={password}
+          name="password"
+          onChange={handlePasswordChange}
+        />
+        <button
+          className='w-1/2 px-4 py-2 font-bold rounded-md shadow-md text-white bg-emerald-500'
+          // variant='contained'
+          // color='primary'
+          id='login-button'
+          type="submit">
+          LOGIN
+        </button>
       </form>
+
     </div >
   )
 }
