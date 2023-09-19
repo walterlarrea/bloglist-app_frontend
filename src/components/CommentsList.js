@@ -36,12 +36,12 @@ const CommentsList = ({ blog }) => {
 
   return (
     <div>
-      <h3>comments</h3>
-
-      <Togglable buttonLabel='add comment' ref={commentFormRef}>
+      <Togglable buttonLabel='Add comment' ref={commentFormRef}>
         <NewCommentForm blog={blog} createComment={addComment} />
       </Togglable>
 
+      <h3 className='mt-4 text-lg'>Commentaries</h3>
+      <hr />
       <List>
         {blog.comments.map(comment =>
           <ListItem key={comment.id}>

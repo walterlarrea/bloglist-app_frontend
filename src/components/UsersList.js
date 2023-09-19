@@ -1,50 +1,42 @@
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
-
-import {
-  Table,
-  TableHead,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableRow,
-  ListItemButton,
-  ListItemText,
-  Paper
-} from '@mui/material'
+import { useNavigate } from 'react-router-dom'
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord'
 
 const Users = () => {
+  const navigate = useNavigate()
   const usersList = useSelector(({ user }) => user.usersList)
 
   return (
     <>
-      <h2>Users</h2>
+      {/* <h2>Users</h2> */}
 
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell></TableCell>
-              <TableCell>blogs created</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
+      <div className='flex justify-center mt-4 text-gray-700'>
+        <table className='w-2/3'>
+          <thead>
+            <tr>
+              <td>Name</td>
+              <td className='w-32'>Blogs created</td>
+            </tr>
+          </thead>
+          <tbody>
             {usersList.map(user =>
-              <TableRow key={user.id} >
-                <TableCell>
-                  <ListItemButton component={Link} to={`/users/${user.id}`} >
-                    <ListItemText >{user.name}</ListItemText>
-                    {user.name}
-                  </ListItemButton>
-                </TableCell>
-                <TableCell>
+              <tr
+                key={user.id}
+                className='cursor-pointer hover:bg-emerald-50'
+                onClick={() => navigate(`/users/${user.id}`)}>
+                <td className='py-2'>
+                  <span className='capitalize'>
+                    <FiberManualRecordIcon className='me-4' />
+                    {user.name}</span>
+                </td>
+                <td>
                   {user.blogs.length}
-                </TableCell>
-              </TableRow>
+                </td>
+              </tr>
             )}
-          </TableBody>
-        </Table>
-      </TableContainer>
+          </tbody>
+        </table>
+      </div>
     </>
   )
 }

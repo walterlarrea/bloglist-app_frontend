@@ -64,11 +64,8 @@ const App = () => {
         </> :
         <div>
           <NavBar />
-          <div style={{ marginTop: 100 }}>
+          <div className='absolute top-20 right-1/2 translate-x-1/2'>
             <Notification />
-          </div>
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <h2>blog app</h2>
           </div>
 
           <Routes>
@@ -76,7 +73,7 @@ const App = () => {
 
             <Route path="/" element={
               <div>
-                <Togglable buttonLabel='create new' ref={blogFormRef}>
+                <Togglable buttonLabel='New blog' ref={blogFormRef}>
                   <NewBlogForm createBlog={addBlog} />
                 </Togglable>
                 <BlogList />

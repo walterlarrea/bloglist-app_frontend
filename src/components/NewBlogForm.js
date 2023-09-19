@@ -1,21 +1,9 @@
 import { useState } from 'react'
 
-import {
-  TextField,
-  Button
-} from '@mui/material'
-
 const NewBlogForm = ({ createBlog }) => {
   const [newTitle, setNewTitle] = useState('')
   const [newAuthor, setNewAuthor] = useState('')
   const [newUrl, setNewUrl] = useState('')
-
-  const startGridStyle = {
-    display: 'grid',
-    gridGap: '20px',
-    gridTemplateColumns: '1fr',
-    justifyItems: 'start'
-  }
 
   const handleTitleChange = (event) => {
     setNewTitle(event.target.value)
@@ -43,11 +31,12 @@ const NewBlogForm = ({ createBlog }) => {
 
   return (
     <div>
-      <h2>create new</h2>
-      <form style={startGridStyle} className='submitForm' onSubmit={addBlog}>
+      <h2 className='pe-4 py-2 text-emerald-900'>Create a new blog</h2>
+      <form className='submitForm flex gap-5 justify-start mb-2' onSubmit={addBlog}>
         <div>
-          <TextField
-            label='title'
+          <input
+            className='w-full p-2 border-solid border-2 border-emerald-400 focus:border-emerald-600 rounded-lg'
+            placeholder='title'
             type='text'
             value={newTitle}
             name='title'
@@ -55,8 +44,9 @@ const NewBlogForm = ({ createBlog }) => {
           />
         </div>
         <div>
-          <TextField
-            label='author'
+          <input
+            className='w-full p-2 border-solid border-2 border-emerald-400 focus:border-emerald-600 rounded-lg'
+            placeholder='author'
             type='text'
             value={newAuthor}
             name='author'
@@ -64,15 +54,18 @@ const NewBlogForm = ({ createBlog }) => {
           />
         </div>
         <div>
-          <TextField
-            label='url'
+          <input
+            className='w-full p-2 border-solid border-2 border-emerald-400 focus:border-emerald-600 rounded-lg'
+            placeholder='url'
             type='text'
             value={newUrl}
             name='url'
             onChange={handleUrlChange}
           />
         </div>
-        <Button style={{ marginBottom: 20 }} variant='contained' type='submit'>create</Button>
+        <button
+          className='px-4 py-2 border-solid border-2 font-bold border-emerald-500 rounded-lg text-emerald-900'
+          type='submit'>CREATE</button>
       </form>
     </div >
   )

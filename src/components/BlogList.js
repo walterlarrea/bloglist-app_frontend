@@ -1,23 +1,9 @@
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
-
-import {
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-  ListItemIcon
-} from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord'
 
 const BlogList = () => {
-  // const blogStyle = {
-  //   paddingTop: 10,
-  //   paddingLeft: 2,
-  //   border: 'solid',
-  //   borderWidth: 1,
-  //   marginBottom: 5
-  // }
+  const navigate = useNavigate()
 
   const blogs = useSelector(({ blogs }) =>
     [...blogs]
@@ -26,19 +12,17 @@ const BlogList = () => {
   //const currentUser = useSelector(({ user }) => user.currentUser)
 
   return (
-    <List>
+    <ul className='mt-4'>
       {blogs.map(blog =>
-        <ListItem key={blog.id}>
-          <ListItemIcon>
-            <FiberManualRecordIcon />
-          </ListItemIcon>
-          <ListItemButton component={Link} to={`/blogs/${blog.id}`} >
-            <ListItemText>{blog.title}</ListItemText>
-          </ListItemButton>
-        </ListItem>
-      )
-      }
-    </List >
+        <li
+          key={blog.id}
+          onClick={() => navigate(`/blogs/${blog.id}`)}
+          className='flex gap-4 p-2 items-center hover:bg-emerald-50 text-gray-700 cursor-pointer' >
+          <FiberManualRecordIcon />
+          <span>{blog.title}</span>
+        </li>
+      )}
+    </ul>
   )
 }
 

@@ -1,32 +1,30 @@
-import {
-  List,
-  ListItem,
-  ListItemText,
-  ListItemIcon
-} from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord'
 
 const User = ({ user }) => {
+  const navigate = useNavigate()
+
   if (!user) {
     return null
   }
 
   return (
     <>
-      <h2>{user.name}</h2>
+      <h2 className='text-emerald-600 text-4xl capitalize'>{user.name}</h2>
+      <hr />
+      <p className='mt-2 ms-12 text-gray-600'>Added blogs</p>
 
-      <p>added blogs</p>
-
-      <List>
+      <ul className='mt-4'>
         {user.blogs.map(blog =>
-          <ListItem key={blog.id}>
-            <ListItemIcon>
-              <FiberManualRecordIcon />
-            </ListItemIcon>
-            <ListItemText>{blog.title}</ListItemText>
-          </ListItem>
+          <li
+            key={blog.id}
+            onClick={() => navigate(`/blogs/${blog.id}`)}
+            className='flex gap-4 p-2 items-center hover:bg-emerald-50 text-gray-700 cursor-pointer' >
+            <FiberManualRecordIcon />
+            <span>{blog.title}</span>
+          </li>
         )}
-      </List>
+      </ul>
     </>
   )
 }
