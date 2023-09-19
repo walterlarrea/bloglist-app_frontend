@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = '/api/comments'
+const baseUrl = 'https://nodejs-mongodb-ywal.onrender.com/api/comments'
 
 const create = async newObject => {
   const response = await axios.post(baseUrl, newObject)

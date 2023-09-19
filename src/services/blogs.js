@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = '/api/blogs'
+const baseUrl = 'https://nodejs-mongodb-ywal.onrender.com/api/blogs'
 
 let token = null
 
