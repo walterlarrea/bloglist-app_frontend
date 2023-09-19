@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## REST API for this project
+
+https://github.com/walterlarrea/bloglist-app_backend
+
 ## Available Scripts
 
 In the project directory, you can run:
