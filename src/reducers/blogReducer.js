@@ -13,7 +13,7 @@ const blogSlice = createSlice({
     },
     updateBlog(state, action) {
       return state.map(blog => {
-        return blog.id !== action.payload.id ? blog : { ...action.payload, user: blog.user, comments: blog.comments }
+        return blog.id !== action.payload.id ? blog : { ...action.payload, user: blog.user, comments: action.payload.comments || blog.comments }
       })
     },
     removeBlog(state, action) {
