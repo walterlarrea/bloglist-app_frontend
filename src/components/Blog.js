@@ -47,7 +47,7 @@ const Blog = ({ blog }) => {
           Likes: <span className='font-bold'>{blog.likes}</span>
         </span>
         <button
-          className='ms-4 px-2 rounded-md shadow-md text-white bg-emerald-500'
+          className='ms-4 px-2 rounded-md shadow-md text-white bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700'
           onClick={handleBlogLike}>
           like
         </button>
@@ -59,7 +59,7 @@ const Blog = ({ blog }) => {
 
       {currentUser.username === blog.user.username &&
         <button
-          className='px-4 py-2 border-solid border-2 border-red-300 rounded-lg text-red-700'
+          className='px-4 py-2 border-solid border-2 border-red-300 rounded-lg text-red-700 active:border-red-400'
           onClick={handleBlogRemove}>Remove</button>
       }
 
