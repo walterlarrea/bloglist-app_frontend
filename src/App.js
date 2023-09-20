@@ -11,6 +11,7 @@ import UsersList from './components/UsersList'
 import User from './components/User'
 
 import { useDispatch, useSelector } from 'react-redux'
+import { setNotification } from './reducers/notificationReducer'
 import { initializeBlogs, createBlog } from './reducers/blogReducer'
 import { initializeUserSession, initializeUserList } from './reducers/userReducer'
 
@@ -25,6 +26,12 @@ const App = () => {
   const currentUser = useSelector(({ user }) => user.currentUser)
   const usersList = useSelector(({ user }) => user.usersList)
   const blogList = useSelector(({ blogs }) => blogs)
+
+  useEffect(() => {
+    if (currentUser.name) {
+      dispatch(setNotification('Successfully logged in', 10, 'GOOD'))
+    }
+  }, [currentUser.name])
 
   const fontStyle = {
     fontFamily: 'Roboto'

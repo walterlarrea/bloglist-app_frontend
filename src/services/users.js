@@ -6,5 +6,10 @@ const getAll = async () => {
   return response.data
 }
 
-const methods = { getAll }
+const create = async newObject => {
+  const response = await axios.post(baseUrl, newObject)
+  return response.data
+}
+
+const methods = { getAll, create }
 export default methods

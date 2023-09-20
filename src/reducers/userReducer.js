@@ -35,6 +35,12 @@ export const login = (credentials) => {
   }
 }
 
+export const register = (newUserObject) => {
+  return async () => {
+    await userService.create(newUserObject)
+  }
+}
+
 export const logout = () => {
   return async dispatch => {
     window.localStorage.removeItem('loggedBloglistappUser')
