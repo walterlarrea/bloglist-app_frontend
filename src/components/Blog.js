@@ -21,7 +21,7 @@ const Blog = ({ blog }) => {
     if (window.confirm(`Remove blog ${blog.title} by ${blog.author}`)) {
       dispatch(deleteBlog(blog.id))
 
-      dispatch(setNotification(`You deleted '${blog.title}`, 10, 'BAD'))
+      dispatch(setNotification(`You deleted '${blog.title}'`, 10, 'BAD'))
 
       navigate('/')
     }
