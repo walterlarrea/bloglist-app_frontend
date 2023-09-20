@@ -39,7 +39,7 @@ const Blog = ({ blog }) => {
       <br />
 
       <div className='mb-2'>
-        <a href={blog.url}>Url: <span className='underline text-emerald-700'>{blog.url}</span></a>
+        <a rel='noreferrer' target='_blank' href={blog.url}>Url: <span className='underline text-emerald-700'>{blog.url}</span></a>
       </div>
 
       <div className='mb-2'>
