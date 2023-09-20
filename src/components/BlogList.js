@@ -12,17 +12,21 @@ const BlogList = () => {
   //const currentUser = useSelector(({ user }) => user.currentUser)
 
   return (
-    <ul className='mt-4'>
-      {blogs.map(blog =>
-        <li
-          key={blog.id}
-          onClick={() => navigate(`/blogs/${blog.id}`)}
-          className='flex gap-4 p-2 items-center hover:bg-emerald-50 text-gray-700 cursor-pointer' >
-          <FiberManualRecordIcon />
-          <span>{blog.title}</span>
-        </li>
-      )}
-    </ul>
+    <>
+      <h2 className='mt-4 text-lg'>Blogs</h2>
+      <hr />
+      <ul className='mt-4'>
+        {blogs.map(blog =>
+          <li
+            key={blog.id}
+            onClick={() => navigate(`/blogs/${blog.id}`)}
+            className='flex gap-4 p-2 items-center hover:bg-emerald-50 text-gray-700 cursor-pointer' >
+            <FiberManualRecordIcon />
+            <span>{blog.title}</span>
+          </li>
+        )}
+      </ul>
+    </>
   )
 }
 

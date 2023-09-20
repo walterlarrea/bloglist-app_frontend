@@ -8,10 +8,11 @@ const Users = () => {
 
   return (
     <>
-      {/* <h2>Users</h2> */}
+      <h2 className='mt-4 text-lg'>Users</h2>
+      <hr />
 
       <div className='flex justify-center mt-4 text-gray-700'>
-        <table className='w-2/3'>
+        <table className='w-10/12 md:w-2/3'>
           <thead>
             <tr>
               <td>Name</td>
