@@ -8,17 +8,7 @@ import Togglable from './Togglable'
 import commentService from '../services/comments'
 import { setNotification } from '../reducers/notificationReducer'
 
-import {
-  List,
-  ListItem,
-  ListItemText,
-  ListItemIcon,
-  // Divider
-} from '@mui/material'
-import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord'
-
 const CommentsList = ({ blog }) => {
-
   const commentFormRef = useRef()
   const dispatch = useDispatch()
 
@@ -40,19 +30,18 @@ const CommentsList = ({ blog }) => {
         <NewCommentForm blog={blog} createComment={addComment} />
       </Togglable>
 
-      <h3 className='mt-4 text-lg'>Commentaries</h3>
+      <h2 className='mt-4 text-lg'>Commentaries</h2>
       <hr />
-      <List>
+      <ul className='mt-4'>
         {blog.comments.map(comment =>
-          <ListItem key={comment.id}>
-            <ListItemIcon>
-              <FiberManualRecordIcon />
-            </ListItemIcon>
-            <ListItemText>{comment.content}</ListItemText>
-          </ListItem>
+          <li
+            key={comment._id}
+            className='flex gap-4 px-4 py-2 mb-2 max-w-sm  items-center rounded-xl bg-slate-200 text-gray-700'>
+            <span>{comment.content}</span>
+          </li>
         )}
         {/* <Divider /> */}
-      </List>
+      </ul>
     </div>
   )
 }

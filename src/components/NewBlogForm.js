@@ -31,7 +31,7 @@ const NewBlogForm = ({ createBlog }) => {
 
   return (
     <div>
-      <h2 className='pe-4 py-2 text-emerald-900'>Create a new blog</h2>
+      <h2 className='py-2 text-emerald-900'>Create a new blog</h2>
       <form className='submitForm flex gap-5 justify-start mb-2' onSubmit={addBlog}>
         <div>
           <input
@@ -64,8 +64,8 @@ const NewBlogForm = ({ createBlog }) => {
           />
         </div>
         <button
-          className='px-4 py-2 border-solid border-2 font-bold border-emerald-500 rounded-lg text-emerald-900'
-          type='submit'>CREATE</button>
+          className='px-4 py-2 border-solid border-2 font-bold border-emerald-500 rounded-lg text-emerald-900 active:border-emerald-600'
+          type='submit'>Create</button>
       </form>
     </div >
   )
